@@ -1,4 +1,4 @@
-# Copyright 2014-2017 Google Inc. All rights reserved.
+# Copyright 2014-2020 Google Inc. All rights reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -33,15 +33,12 @@
                   dynamic.regression = FALSE,
                   max.flips = -1)
 
+#' Check and format the \code{data} argument provided to \code{CausalImpact()}
+#'
+#' @param data A zoo object, a vector, a matrix, or a data frame.
+#'
+#' @return A correctly formatted zoo object.
 FormatInputData <- function(data) {
-  # Checks and formats the <data> argument provided to CausalImpact().
-  #
-  # Args:
-  #   data: a zoo object, a vector, a matrix, or a data frame.
-  #
-  # Returns:
-  #   correctly formatted zoo object
-
   # Check if `data` is a valid data type: a zoo object, a numerical vector, a
   # matrix, or a data frame.
   assert_that(is.zoo(data) || is.data.frame(data) ||
